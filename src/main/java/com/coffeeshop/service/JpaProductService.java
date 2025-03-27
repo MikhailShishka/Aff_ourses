@@ -45,8 +45,8 @@ public class JpaProductService implements ProductService {
     }
 
     // Получить продукты по категории
-    public List<ProductDTO> getProductsByCategory(String category) {
-        return productRepository.findByCategory(category).stream()
+    public List<ProductDTO> getProductsByCategoryName(String categoryName) {
+        return productRepository.findByCategoryName(categoryName).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }

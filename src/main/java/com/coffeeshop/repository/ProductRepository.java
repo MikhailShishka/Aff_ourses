@@ -11,5 +11,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByAvailableTrue();
 
     // Метод для поиска по категории
-    List<Product> findByCategory(String category);
+    List<Product> findByCategoryName(String categoryName);
 }
