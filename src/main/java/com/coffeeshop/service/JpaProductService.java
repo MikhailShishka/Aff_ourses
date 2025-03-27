@@ -43,4 +43,11 @@ public class JpaProductService implements ProductService {
         dto.setAvailable(product.isAvailable());
         return dto;
     }
+
+    // Получить продукты по категории
+    public List<ProductDTO> getProductsByCategory(String category) {
+        return productRepository.findByCategory(category).stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
 }
