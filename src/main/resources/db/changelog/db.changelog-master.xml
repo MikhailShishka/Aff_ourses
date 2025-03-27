@@ -7,25 +7,4 @@
 
     <include file="db/changelog/changes/001-initial-schema.xml"/>
 
-    <changeSet author="MAMANTUN (generated)" id="1743069315397-1">
-        <addColumn tableName="products">
-            <column name="category" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-        </addColumn>
-    </changeSet>
-    <changeSet author="MAMANTUN (generated)" id="1743069393210-1">
-        <addColumn tableName="products">
-            <column name="category" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-        </addColumn>
-    </changeSet>
-    <changeSet author="MAMANTUN (generated)" id="1743069761866-1">
-        <addColumn tableName="products">
-            <column name="category" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-        </addColumn>
-    </changeSet>
 </databaseChangeLog>
