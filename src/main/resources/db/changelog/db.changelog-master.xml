@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <include file="db/changelog/changes/001-initial-schema.xml"/>
+
+    <changeSet author="MAMANTUN (generated)" id="1743069315397-1">
+        <addColumn tableName="products">
+            <column name="category" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="MAMANTUN (generated)" id="1743069393210-1">
+        <addColumn tableName="products">
+            <column name="category" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="MAMANTUN (generated)" id="1743069761866-1">
+        <addColumn tableName="products">
+            <column name="category" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
