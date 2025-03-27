@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <changeSet id="insert-sample-products-1" author="MAMANTUN">
+        <insert tableName="products">
+            <column name="id" value="1001"/>
+            <column name="name" value="Espresso"/>
+            <column name="price" value="2.5"/>
+            <column name="category" value="Coffee"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="1002"/>
+            <column name="name" value="Latte"/>
+            <column name="price" value="3.0"/>
+            <column name="category" value="Coffee"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="1003"/>
+            <column name="name" value="Croissant"/>
+            <column name="price" value="2.0"/>
+            <column name="category" value="Pastries"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="1004"/>
+            <column name="name" value="Bagel"/>
+            <column name="price" value="1.8"/>
+            <column name="category" value="Pastries"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="1005"/>
+            <column name="name" value="Orange Juice"/>
+            <column name="price" value="2.2"/>
+            <column name="category" value="Beverages"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="1006"/>
+            <column name="name" value="Cappuccino"/>
+            <column name="price" value="3.2"/>
+            <column name="category" value="Coffee"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
