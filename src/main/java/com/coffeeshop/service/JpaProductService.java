@@ -6,6 +6,7 @@ import com.coffeeshop.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -49,5 +50,9 @@ public class JpaProductService implements ProductService {
         return productRepository.findByCategoryName(categoryName).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
+    }
+
+    public List<ProductDTO> searchByNameAndPriceRange(String namePart, BigDecimal min, BigDecimal max) {
+        return productRepository.searchByNameAndPriceRange(namePart, min, max);
     }
 }
