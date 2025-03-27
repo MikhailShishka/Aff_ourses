@@ -33,6 +33,11 @@ public class Product {
     @Column(nullable = false)
     private boolean available = true;
 
-    @Column(nullable = false)
-    private String category = "Uncategorized";
+//    @Column(nullable = false)
+//    private String category = "Uncategorized";
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
 }

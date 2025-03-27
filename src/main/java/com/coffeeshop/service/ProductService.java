@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface ProductService {
     List<ProductDTO> getAllProducts();
     Optional<ProductDTO> getProductById(Long id);
-    List<ProductDTO> getProductsByCategory(String category);
+    List<ProductDTO> getProductsByCategoryName(String categoryName);
 
 }
