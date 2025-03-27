@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -40,6 +41,13 @@ public class ProductController {
     public ResponseEntity<List<ProductDTO>> getProductsByCategory(@PathVariable String categoryName) {
         return ResponseEntity.ok(productService.getProductsByCategoryName(categoryName));
     }
-
-
+    @GetMapping("/search")
+    @Operation(summary = "Search products by name and price range", description = "Find products by part of the name and a price range")
+    public ResponseEntity<List<ProductDTO>> searchProducts(
+            @RequestParam String namePart,
+            @RequestParam BigDecimal minPrice,
+            @RequestParam BigDecimal maxPrice) {
+        List<ProductDTO> products = productService.searchByNameAndPriceRange(namePart, minPrice, maxPrice);
+        return ResponseEntity.ok(products);
+    }
 }
