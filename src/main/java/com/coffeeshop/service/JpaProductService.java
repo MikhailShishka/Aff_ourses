@@ -1,9 +1,13 @@
 package com.coffeeshop.service;
 
 import com.coffeeshop.dto.ProductDTO;
+import com.coffeeshop.mapper.ProductMapper;
 import com.coffeeshop.model.Product;
+import com.coffeeshop.repository.CategoryRepository;
 import com.coffeeshop.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -15,11 +19,6 @@ import java.util.stream.Collectors;
 public class JpaProductService implements ProductService {
 
     private final ProductRepository productRepository;
-
-    @Autowired
-    public JpaProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 
     @Override
     public List<ProductDTO> getAllProducts() {
@@ -54,5 +53,27 @@ public class JpaProductService implements ProductService {
 
     public List<ProductDTO> searchByNameAndPriceRange(String namePart, BigDecimal min, BigDecimal max) {
         return productRepository.searchByNameAndPriceRange(namePart, min, max);
+    }
+
+    private ProductMapper productMapper;
+
+    @Autowired
+    public JpaProductService(ProductRepository productRepository,
+                             ProductMapper productMapper) {
+        this.productRepository = productRepository;
+        this.productMapper = productMapper;
+    }
+
+
+    @Override
+    public Page<ProductDTO> getAllProducts(Pageable pageable) {
+        return productRepository.findAll(pageable)
+                .map(productMapper::toDTO);
+    }
+
+    @Override
+    public Page<ProductDTO> getProductsByCategoryName(String categoryName, Pageable pageable) {
+        return productRepository.findByCategoryName(categoryName, pageable)
+                .map(productMapper::toDTO);
     }
 }
