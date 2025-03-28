@@ -2,6 +2,8 @@ package com.coffeeshop.repository;
 
 import com.coffeeshop.dto.ProductDTO;
 import com.coffeeshop.model.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -16,6 +18,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     // Метод для поиска по категории
     List<Product> findByCategoryName(String categoryName);
+
+    Page<Product> findByCategoryName(String categoryName, Pageable pageable);
 
     // Новый кастомный JPA-запрос: часть названия и диапазон цен
     @Query("SELECT p FROM Product p WHERE " +

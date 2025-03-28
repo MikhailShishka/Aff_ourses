@@ -64,6 +64,11 @@ dependencies {
 	liquibaseRuntime 'info.picocli:picocli:4.7.5'
 	liquibaseRuntime 'org.postgresql:postgresql:42.7.2'
 	liquibaseRuntime sourceSets.main.output
+
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+
 }
 
 test {
@@ -84,4 +89,8 @@ liquibase {
 			referenceUrl 'hibernate:spring:com.coffeeshop.model?dialect=org.hibernate.dialect.PostgreSQLDialect&hibernate.physical_naming_strategy=org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy'
 		}
 	}
+}
+
+tasks.withType(JavaCompile) {
+	options.annotationProcessorPath = configurations.annotationProcessor
 }
